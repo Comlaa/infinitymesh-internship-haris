@@ -1,1 +1,1 @@
-# infinitymesh-intership-haris
+# infinitymesh-internship-haris
