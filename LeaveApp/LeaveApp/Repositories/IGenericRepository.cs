@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Repositories
 {
-    interface IGenericRepository<T>
+    interface IGenericRepository<T> where T : class
     {
-        T getByID(T ID);
+        T getByID(object ID);
         IEnumerable<T> GetAllObjects();
-        void AddObject(T ID);
-        void RemoveObject(T ID);
+        void AddObject(T obj);
+        void RemoveObjectByID(object ID);
 
     }
 }

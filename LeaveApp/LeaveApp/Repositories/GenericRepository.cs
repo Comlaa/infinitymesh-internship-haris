@@ -1,4 +1,5 @@
 ﻿using LeaveApp.DB;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,27 +7,36 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T>
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private static DBContext _DBContext = new DBContext();
-        public void AddObject(T ID)
+        private DBContext _Context = null;
+        private DbSet<T> Table = null;
+
+        public GenericRepository(DBContext context)
         {
-            
+            _Context = context;
+            Table = _Context.Set<T>();
+        }
+        public void AddObject(T obj)
+        {
+            Table.Add(obj);
         }
 
         public IEnumerable<T> GetAllObjects()
         {
-            throw new NotImplementedException();
+            return Table.ToList();
         }
 
-        public T getByID(T ID)
+        public T getByID(object ID)
         {
-            throw new NotImplementedException();
+            return Table.Find(ID);
         }
 
-        public void RemoveObject(T ID)
+        public void RemoveObjectByID(object ID)
         {
-            throw new NotImplementedException();
+            T Obj = Table.Find(ID);
+            Table.Remove(Obj);
+
         }
     }
 }

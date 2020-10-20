@@ -1,4 +1,5 @@
 ﻿using LeaveApp.Domain;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.DB
 {
-    public class DBContext
+    public class DBContext : DbContext
     {
         public List<JobTitle> JobTitles { get; set; }
         public List<Department> Departments { get; set; }
