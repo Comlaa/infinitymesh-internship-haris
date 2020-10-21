@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Dal.Domain
 {
-    public class UserRole : ICreateInfo
+    public class UserRole :BaseEntitity
     {
         public virtual User UserID { get; set; }
         public virtual Role RoleID { get; set; }
-        public DateTime DateCreated { get; set; }
-        public string CreatedBy { get; set; }
+        public UserRole(string Autorh) : base(Autorh) { }
     }
 }

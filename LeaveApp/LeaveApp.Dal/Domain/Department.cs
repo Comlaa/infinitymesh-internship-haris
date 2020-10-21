@@ -5,13 +5,12 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Dal.Domain
 {
-    public class Department : ICreateInfo
+    public class Department : BaseEntitity
     {
-        public int ID { get; set; }
 
         public string Name { get; set; }
 
-        public DateTime DateCreated { get; set; }
-        public string CreatedBy { get; set; }
+        public Department(string Autorh) : base(Autorh) { }
+
     }
 }

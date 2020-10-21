@@ -1,40 +1,42 @@
 ﻿using LeaveApp.Dal;
+using LeaveApp.Dal.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeaveApp.Repositories
+namespace LeaveApp.Dal.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<TEntitity> : IGenericRepository<TEntitity> where TEntitity : BaseEntitity
     {
         private LeaveAppDbContext _Context = null;
-        private DbSet<T> Table = null;
+        private DbSet<TEntitity> Table = null;
 
         public GenericRepository(LeaveAppDbContext context)
         {
             _Context = context;
-            Table = _Context.Set<T>();
+            Table = _Context.Set<TEntitity>();
         }
-        public void AddObject(T obj)
+        public TEntitity AddObject(TEntitity obj)
         {
             Table.Add(obj);
+            return obj;
         }
 
-        public IEnumerable<T> GetAllObjects()
+        public IEnumerable<TEntitity> GetAllObjects()
         {
             return Table.ToList();
         }
 
-        public T getByID(object ID)
+        public TEntitity getByID(int ID)
         {
             return Table.Find(ID);
         }
 
-        public void RemoveObjectByID(object ID)
+        public void RemoveObjectByID(int ID)
         {
-            T Obj = Table.Find(ID);
+            TEntitity Obj = Table.Find(ID);
             Table.Remove(Obj);
 
         }
