@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeaveApp.Domain
+namespace LeaveApp.Dal.Domain
 {
     public class Department
     {

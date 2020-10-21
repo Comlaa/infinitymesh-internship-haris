@@ -1,11 +1,8 @@
-﻿using LeaveApp.Domain;
+﻿using LeaveApp.Dal.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace LeaveApp.DB
+namespace LeaveApp.Dal
 {
     public class LeaveAppDbContext : DbContext
     {

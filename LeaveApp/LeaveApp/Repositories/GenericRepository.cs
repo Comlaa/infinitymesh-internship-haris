@@ -1,4 +1,4 @@
-﻿using LeaveApp.DB;
+﻿using LeaveApp.Dal;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
