@@ -9,10 +9,10 @@ namespace LeaveApp.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private DBContext _Context = null;
+        private LeaveAppDbContext _Context = null;
         private DbSet<T> Table = null;
 
-        public GenericRepository(DBContext context)
+        public GenericRepository(LeaveAppDbContext context)
         {
             _Context = context;
             Table = _Context.Set<T>();
