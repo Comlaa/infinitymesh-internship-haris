@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Dal.Domain
 {
-    public class UserLeave
+    public class UserLeave : ICreateInfo
     {
         public virtual User UserID { get; set; }
         public virtual Leave LeaveID { get; set; }
@@ -15,5 +15,7 @@ namespace LeaveApp.Dal.Domain
         public User ApprovedBy { get; set; }
         public bool IsAproved { get; set; }
         public User UserReplacment { get; set; }
+        public DateTime DateCreated { get; set; }
+        public string CreatedBy { get; set; }
     }
 }
