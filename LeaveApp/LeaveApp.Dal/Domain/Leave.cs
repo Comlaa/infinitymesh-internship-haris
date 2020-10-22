@@ -9,8 +9,7 @@ namespace LeaveApp.Dal.Domain
     { 
         public string LeaveType { get; set; }
         public string Description { get; set; }
-
-        public Leave(string Autorh) : base(Autorh) { }
+        public List<UserLeave> UserLeaves { get; set; }
 
     }
 }

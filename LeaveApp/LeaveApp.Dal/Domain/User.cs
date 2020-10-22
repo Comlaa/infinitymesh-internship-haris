@@ -12,8 +12,9 @@ namespace LeaveApp.Dal.Domain
         public string Email { get; set; }
         public int DepartmentID { get; set; }
         public int JobTitleID { get; set; }
-        public List<UserRole> Roles { get; set; }
-        public User(string Autorh) : base(Autorh) { }
+        public List<UserRole> UserRoles { get; set; }
+        public List<UserLeave> UserLeaves { get; set; }
+
 
     }
 }

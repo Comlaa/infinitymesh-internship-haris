@@ -5,16 +5,18 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Dal.Domain
 {
-    public class UserLeave : BaseEntitity
+    public class UserLeave
     {
-        public virtual User UserID { get; set; }
-        public virtual Leave LeaveID { get; set; }
-        public Notification NotificationID { get; set; }
+        public int UserId { get; set; }
+        public int LeaveId { get; set; }
+        public virtual User User { get; set; }
+        public virtual Leave Leave { get; set; }
+        public List<Notification> Notifications{ get; set; }
         public DateTime StartingDate { get; set; }
         public DateTime EndingDate { get; set; }
-        public User ApprovedBy { get; set; }
+        public string ApprovedBy { get; set; }
         public bool IsAproved { get; set; }
-        public User UserReplacment { get; set; }
-        public UserLeave(string Autorh) : base(Autorh) { }
+        public string UserReplacment { get; set; }
+        
     }
 }

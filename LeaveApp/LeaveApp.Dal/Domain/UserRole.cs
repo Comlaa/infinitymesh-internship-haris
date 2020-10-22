@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Dal.Domain
 {
-    public class UserRole :BaseEntitity
+    public class UserRole
     {
-        public virtual User UserID { get; set; }
-        public virtual Role RoleID { get; set; }
-        public UserRole(string Autorh) : base(Autorh) { }
+        public virtual User User { get; set; }
+        public virtual Role Role { get; set; }
+        public int UserId { get; set; }
+        public int RoleId { get; set; }
+
     }
 }

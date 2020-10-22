@@ -10,6 +10,6 @@ namespace LeaveApp.Dal.Domain
         public string RoleName { get; set; }
         public DateTime DateModified { get; set; }
         public List<UserRole> UserRoles { get; set; }
-        public Role(string Autorh) : base(Autorh) { }
+        
     }
 }
