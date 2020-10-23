@@ -14,21 +14,11 @@ namespace LeaveApp.Dal
         public DbSet<UserLeave> UserLeaves { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            const string connectionString = "Server=.;Initial Catalog=LADataBase;Integrated Security=true";
-            optionsBuilder.UseSqlServer(connectionString);
-            base.OnConfiguring(optionsBuilder);
-        }
+        public LeaveAppDbContext(DbContextOptions<LeaveAppDbContext> options) : base (options)  {}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
-            modelBuilder.ApplyConfiguration(new RoleConfiguration());
-            modelBuilder.ApplyConfiguration(new UserRoleConfiguration());
-            modelBuilder.ApplyConfiguration(new LeaveConfiguration());
-            modelBuilder.ApplyConfiguration(new UserLeaveConfiguration());
-            modelBuilder.ApplyConfiguration(new NotificationConfiguration());
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserConfiguration).Assembly);
             base.OnModelCreating(modelBuilder);
         }
     }

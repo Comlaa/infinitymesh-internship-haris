@@ -11,6 +11,20 @@ namespace LeaveApp.Dal.Configuration
         public override void Configure(EntityTypeBuilder<Role> builder)
         {
             base.Configure(builder);
+
+            builder.HasData(new Role[]
+            {
+                new Role {
+                Id = 1,
+                RoleName = "Admin",
+                DateModified = DateTime.Now,
+            },
+                 new Role {
+                Id = 2,
+                RoleName = "Moderator",
+                DateModified = DateTime.Now,
+            }
+            });
         }
     }
 }

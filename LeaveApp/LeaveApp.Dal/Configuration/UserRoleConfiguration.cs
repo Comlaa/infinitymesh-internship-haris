@@ -23,8 +23,13 @@ namespace LeaveApp.Dal.Configuration
                 .WithMany(p => p.UserRoles)
                 .HasForeignKey(p => p.RoleId);
 
-
-
+            builder.HasData(new List<UserRole> {
+                new UserRole { UserId = 1, RoleId = 1 },
+                new UserRole { UserId = 1, RoleId = 2 },
+                new UserRole { UserId = 2, RoleId = 1 },
+                new UserRole { UserId = 2, RoleId = 2 },
+                new UserRole { UserId = 3, RoleId = 1 },
+            });
         }
 
     }

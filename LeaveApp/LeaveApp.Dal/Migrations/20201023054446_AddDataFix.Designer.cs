@@ -4,14 +4,16 @@ using LeaveApp.Dal;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeaveApp.Dal.Migrations
 {
     [DbContext(typeof(LeaveAppDbContext))]
-    partial class LeaveAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201023054446_AddDataFix")]
+    partial class AddDataFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,16 +119,9 @@ namespace LeaveApp.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2020, 10, 23, 9, 49, 21, 205, DateTimeKind.Utc).AddTicks(6807),
-                            DateModified = new DateTime(2020, 10, 23, 11, 49, 21, 205, DateTimeKind.Local).AddTicks(8027),
+                            CreatedAt = new DateTime(2020, 10, 23, 5, 44, 45, 893, DateTimeKind.Utc).AddTicks(2612),
+                            DateModified = new DateTime(2020, 10, 23, 7, 44, 45, 893, DateTimeKind.Local).AddTicks(3724),
                             RoleName = "Admin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2020, 10, 23, 9, 49, 21, 209, DateTimeKind.Utc).AddTicks(1730),
-                            DateModified = new DateTime(2020, 10, 23, 11, 49, 21, 209, DateTimeKind.Local).AddTicks(1758),
-                            RoleName = "Moderator"
                         });
                 });
 
@@ -170,32 +165,12 @@ namespace LeaveApp.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2020, 10, 23, 9, 49, 21, 202, DateTimeKind.Utc).AddTicks(6190),
+                            CreatedAt = new DateTime(2020, 10, 23, 5, 44, 45, 889, DateTimeKind.Utc).AddTicks(7133),
                             DepartmentID = 1,
                             Email = "haris.mlaco@edu.fit.ba",
                             JobTitleID = 1,
                             Password = "12345",
                             UserName = "comlaa"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2020, 10, 23, 9, 49, 21, 203, DateTimeKind.Utc).AddTicks(498),
-                            DepartmentID = 1,
-                            Email = "amujkic@infinitymesh.com",
-                            JobTitleID = 2,
-                            Password = "12345",
-                            UserName = "amujkic"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedAt = new DateTime(2020, 10, 23, 9, 49, 21, 203, DateTimeKind.Utc).AddTicks(584),
-                            DepartmentID = 1,
-                            Email = "nedzada@edu.fit.ba",
-                            JobTitleID = 1,
-                            Password = "12345",
-                            UserName = "nalibegovic"
                         });
                 });
 
@@ -247,26 +222,6 @@ namespace LeaveApp.Dal.Migrations
                         new
                         {
                             UserId = 1,
-                            RoleId = 1
-                        },
-                        new
-                        {
-                            UserId = 1,
-                            RoleId = 2
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            RoleId = 1
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            RoleId = 2
-                        },
-                        new
-                        {
-                            UserId = 3,
                             RoleId = 1
                         });
                 });
