@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using LeaveApp.Dal.Repositories;
-using Microsoft.AspNetCore.Mvc;š
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace LeaveApp.Controllers
