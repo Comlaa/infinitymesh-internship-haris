@@ -34,5 +34,16 @@ namespace LeaveApp.Controllers
             var id = await _userRepository.Save(user);
             return Ok(id);
         }
+
+        [HttpDelete]
+        public async Task<string> Delete(int UserId)
+        {
+            if (await _userRepository.Delete(UserId))
+                return ("sucesfull");
+            else
+                return ("unsucesfull");
+
+            
+        }
     }
 }

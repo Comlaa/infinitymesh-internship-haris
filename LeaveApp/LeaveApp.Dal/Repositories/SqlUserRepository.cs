@@ -18,6 +18,17 @@ namespace LeaveApp.Dal.Repositories
         {
             _LeaveAppContext = leaveAppDbContext;
         }
+
+        public async Task<bool> Delete(int UserId, CancellationToken cancellationToken = default)
+        {
+            var user = _LeaveAppContext.Users.Find(UserId);
+
+            _LeaveAppContext.Users.Remove(user);
+            await _LeaveAppContext.SaveChangesAsync(cancellationToken);
+
+            return true;
+        }
+
         public async Task<UserViewModel> GetTopTen(CancellationToken cancellationToken = default)
         {
             int MaxNumber = 10;

@@ -14,5 +14,7 @@ namespace LeaveApp.Dal.Repositories
         Task<UserViewModel> GetTopTen(CancellationToken cancellationToken = default);
 
         Task<int> Save(UserDto user, CancellationToken cancellationToken = default);
+
+        Task<bool> Delete(int UserId, CancellationToken cancellationToken = default);
     }
 }
