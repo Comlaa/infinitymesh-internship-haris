@@ -1,0 +1,15 @@
+﻿using LeaveApp.Dal.Domain;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace LeaveApp.Dal.Repositories
+{
+    public interface IUnitOfWork
+    {
+        IGenericRepository<User> Users { get; }
+        IGenericRepository<Role> Role { get; }
+
+        void Commit();
+    }
+}

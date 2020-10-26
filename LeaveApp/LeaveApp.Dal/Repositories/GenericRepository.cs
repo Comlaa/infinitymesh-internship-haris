@@ -1,17 +1,19 @@
 ﻿using LeaveApp.Dal;
 using LeaveApp.Dal.Domain;
+using LeaveApp.Dal.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LeaveApp.Dal.Repositories
 {
     public class GenericRepository<TEntitity> : IGenericRepository<TEntitity> where TEntitity : BaseEntitity
     {
-        private LeaveAppDbContext _Context = null;
-        private DbSet<TEntitity> Table = null;
+        private LeaveAppDbContext _Context;
+        private DbSet<TEntitity> Table;
 
         public GenericRepository(LeaveAppDbContext context)
         {
@@ -24,19 +26,20 @@ namespace LeaveApp.Dal.Repositories
             return obj;
         }
 
-        public IEnumerable<TEntitity> GetAllObjects()
+        public async Task<IReadOnlyCollection<TEntitity>> GetTopTen(CancellationToken cancellationToken = default)
         {
-            return Table.ToList();
+            int MaxNum = 10;
+            return await Table.Take(MaxNum).ToListAsync(cancellationToken);
         }
 
-        public TEntitity getByID(int ID)
+        public TEntitity getById(int Id)
         {
-            return Table.Find(ID);
+            return Table.Find(Id);
         }
 
-        public void RemoveObjectByID(int ID)
+        public void DeleteById(int Id)
         {
-            TEntitity Obj = Table.Find(ID);
+            TEntitity Obj = Table.Find(Id);
             Table.Remove(Obj);
 
         }
