@@ -42,8 +42,12 @@ namespace LeaveApp.Controllers
                 return ("sucesfull");
             else
                 return ("unsucesfull");
+        }
 
-            
+        [HttpPatch]
+        public void Update (int UserId, [FromBody] UserDto user)
+        {
+             _userRepository.UpdateUser(UserId, user);
         }
     }
 }

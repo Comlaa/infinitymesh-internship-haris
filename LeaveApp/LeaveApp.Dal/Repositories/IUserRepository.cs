@@ -16,5 +16,7 @@ namespace LeaveApp.Dal.Repositories
         Task<int> Save(UserDto user, CancellationToken cancellationToken = default);
 
         Task<bool> Delete(int UserId, CancellationToken cancellationToken = default);
+
+        void UpdateUser(int UserId, UserDto user);
     }
 }

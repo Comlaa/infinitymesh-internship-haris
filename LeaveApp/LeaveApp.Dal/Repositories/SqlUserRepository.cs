@@ -54,5 +54,17 @@ namespace LeaveApp.Dal.Repositories
 
             return UserDomain.Id;
         }
+
+        public void UpdateUser(int UserId, UserDto user)
+        {
+            var ActiveUser = _LeaveAppContext.Users.Find(UserId);
+
+            ActiveUser.Name = user.Name;
+            ActiveUser.JobTitle = user.JobTitle;
+            ActiveUser.Department = user.Department;
+            ActiveUser.Email = user.Email;
+
+             _LeaveAppContext.SaveChanges();
+        }
     }
 }
