@@ -1,4 +1,5 @@
 ﻿using LeaveApp.Dal.Domain;
+using LeaveApp.Dal.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -17,13 +18,30 @@ namespace LeaveApp.Dal.Repositories
         {
             _LeaveAppContext = leaveAppDbContext;
         }
-        public async Task<ICollection<User>> GetTopTen(CancellationToken cancellationToken = default)
+        public async Task<UserViewModel> GetTopTen(CancellationToken cancellationToken = default)
         {
             int MaxNumber = 10;
-            return await _LeaveAppContext.Users.Take(MaxNumber).ToListAsync(cancellationToken);
-            
+            var collection = await _LeaveAppContext.Users.Take(MaxNumber).ToListAsync(cancellationToken);
+
+            return new UserViewModel(collection);
         }
 
+        public async Task<int> Save(UserDto user, CancellationToken cancellationToken = default)
+        {
+            var UserDomain = new User
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Email = user.Email,
+                Department = user.Department,
+                JobTitle = user.JobTitle,
+                Password = Guid.NewGuid().ToString("n"),
+            };
 
+            await _LeaveAppContext.Users.AddAsync(UserDomain, cancellationToken);
+            await _LeaveAppContext.SaveChangesAsync(cancellationToken);
+
+            return UserDomain.Id;
+        }
     }
 }

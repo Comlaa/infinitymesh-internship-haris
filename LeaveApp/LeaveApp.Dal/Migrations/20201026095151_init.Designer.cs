@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LeaveApp.Dal.Migrations
 {
     [DbContext(typeof(LeaveAppDbContext))]
-    [Migration("20201023050232_AddData")]
-    partial class AddData
+    [Migration("20201026095151_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -119,9 +119,16 @@ namespace LeaveApp.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2020, 10, 23, 5, 2, 31, 785, DateTimeKind.Utc).AddTicks(1602),
-                            DateModified = new DateTime(2020, 10, 23, 7, 2, 31, 785, DateTimeKind.Local).AddTicks(3932),
+                            CreatedAt = new DateTime(2020, 10, 26, 9, 51, 51, 150, DateTimeKind.Utc).AddTicks(814),
+                            DateModified = new DateTime(2020, 10, 26, 10, 51, 51, 150, DateTimeKind.Local).AddTicks(2982),
                             RoleName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2020, 10, 26, 9, 51, 51, 154, DateTimeKind.Utc).AddTicks(5178),
+                            DateModified = new DateTime(2020, 10, 26, 10, 51, 51, 154, DateTimeKind.Local).AddTicks(5229),
+                            RoleName = "Moderator"
                         });
                 });
 
@@ -138,23 +145,23 @@ namespace LeaveApp.Dal.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DepartmentID")
-                        .HasColumnType("int");
+                    b.Property<string>("Department")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("JobTitleID")
-                        .HasColumnType("int");
+                    b.Property<string>("JobTitle")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2")
                         .HasComment("This is the default comment.");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -165,12 +172,22 @@ namespace LeaveApp.Dal.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2020, 10, 23, 5, 2, 31, 780, DateTimeKind.Utc).AddTicks(1179),
-                            DepartmentID = 1,
+                            CreatedAt = new DateTime(2020, 10, 26, 9, 51, 51, 158, DateTimeKind.Utc).AddTicks(580),
+                            Department = "Engineering",
                             Email = "haris.mlaco@edu.fit.ba",
-                            JobTitleID = 1,
-                            Password = "12345",
-                            UserName = "comlaa"
+                            JobTitle = "Software Developer",
+                            Name = "Haris Mlaco",
+                            Password = "12345"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2020, 10, 26, 9, 51, 51, 158, DateTimeKind.Utc).AddTicks(5159),
+                            Department = "Engineering",
+                            Email = "admir.mujkic@infinitymesh.com",
+                            JobTitle = "Software Architect",
+                            Name = "Admir Mujkic",
+                            Password = "123"
                         });
                 });
 
@@ -222,6 +239,16 @@ namespace LeaveApp.Dal.Migrations
                         new
                         {
                             UserId = 1,
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            UserId = 1,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UserId = 2,
                             RoleId = 1
                         });
                 });

@@ -1,4 +1,6 @@
-﻿using LeaveApp.Dal.Domain;
+﻿using LeaveApp.Dal.Configuration;
+using LeaveApp.Dal.Domain;
+using LeaveApp.Dal.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +11,8 @@ namespace LeaveApp.Dal.Repositories
 {
     public interface IUserRepository
     {
-        Task<ICollection<User>> GetTopTen(CancellationToken cancellationToken = default);
+        Task<UserViewModel> GetTopTen(CancellationToken cancellationToken = default);
+
+        Task<int> Save(UserDto user, CancellationToken cancellationToken = default);
     }
 }

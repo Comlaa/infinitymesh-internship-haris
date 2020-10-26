@@ -15,29 +15,21 @@ namespace LeaveApp.Dal.Configuration
             builder.HasData(new User[]
             {   new User{
                 Id = 1,
-                UserName = "comlaa",
+                Name = "Haris Mlaco",
                 Password = "12345",
                 Email = "haris.mlaco@edu.fit.ba",
-                DepartmentID = 1,
-                JobTitleID = 1,
+                Department = "Engineering",
+                JobTitle = "Software Developer",
             },
             new User{
                 Id = 2,
-                UserName = "amujkic",
-                Password = "12345",
-                Email = "amujkic@infinitymesh.com",
-                DepartmentID = 1,
-                JobTitleID = 2,
-            },
-            new User{
-                Id = 3,
-                UserName = "nalibegovic",
-                Password = "12345",
-                Email = "nedzada@edu.fit.ba",
-                DepartmentID = 1,
-                JobTitleID = 1,
-            }});
-
+                Name = "Admir Mujkic",
+                Password = "123",
+                Email = "admir.mujkic@infinitymesh.com",
+                Department = "Engineering",
+                JobTitle = "Software Architect",
+            }
+            });
         }
     }
 }
