@@ -1,6 +1,7 @@
 ﻿using LeaveApp.Dal.Domain;
 using LeaveApp.Dal.Repositories;
 using LeaveApp.Dal.ViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,16 @@ namespace LeaveApp.Controllers
         }
 
         [HttpGet]
-        public async Task<UserViewModel> Get()
+        public async Task<UserViewModel> GetUsers()
         {
             return new UserViewModel(await unitOfWork.Users.GetTopTen());
+
+        }
+
+        [HttpGet]
+        public UserDto GetUserById(int Id)
+        {
+            return new UserDto(unitOfWork.Users.getById(Id));
 
         }
 
