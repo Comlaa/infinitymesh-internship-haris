@@ -11,5 +11,16 @@ namespace LeaveApp.Dal.Domain
         public string Description { get; set; }
         public List<UserLeave> UserLeaves { get; set; }
 
+        public Leave()
+        {
+
+        }
+        public Leave(Leave leave)
+        {
+            //Id = Guid.NewGuid().GetHashCode();
+            LeaveType = leave.LeaveType;
+            Description = leave.Description;
+        }
+
     }
 }

@@ -22,6 +22,7 @@ namespace LeaveApp.Controllers
             unitOfWork = _Unit;
         }
 
+        #region UserController
         [HttpGet]
         public async Task<UserViewModel> GetUsers()
         {
@@ -43,7 +44,34 @@ namespace LeaveApp.Controllers
 
             return new UserDto(User);
         }
+        #endregion
+
+        #region LeaveController
+        [HttpGet]
+        public async Task<LeaveViewModel> GetLeaves()
+        {
+            System.Diagnostics.Debug.WriteLine("GetLeavesGotCalled!!!");
+            return new LeaveViewModel(await unitOfWork.Leave.GetTopTen());
 
 
+        }
+
+        [HttpGet]
+        public LeaveDto GetLeaveById(int Id)
+        {
+            
+            return new LeaveDto(unitOfWork.Leave.getById(Id));
+
+        }
+
+        [HttpPost]
+        public async Task<LeaveDto> AddLeave([FromBody] Leave Leave)
+        {
+            
+            await unitOfWork.Leave.AddObject(new Leave(Leave));
+
+            return new LeaveDto(Leave);
+        }
+        #endregion
     }
 }

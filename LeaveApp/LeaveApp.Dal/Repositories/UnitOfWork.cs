@@ -11,6 +11,7 @@ namespace LeaveApp.Dal.Repositories
         private LeaveAppDbContext _DbContext;
         private GenericRepository<User> _Users;
         private GenericRepository<Role> _Roles;
+        private GenericRepository<Leave> _Leaves;
 
         public UnitOfWork(LeaveAppDbContext context)
         {
@@ -29,6 +30,14 @@ namespace LeaveApp.Dal.Repositories
             get
             {
                 return _Roles ??= new GenericRepository<Role>(_DbContext);
+            }
+        }
+
+        public IGenericRepository<Leave> Leave
+        {
+            get
+            {
+                return _Leaves ??= new GenericRepository<Leave>(_DbContext);
             }
         }
 
