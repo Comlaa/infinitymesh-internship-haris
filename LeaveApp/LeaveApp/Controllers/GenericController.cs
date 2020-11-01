@@ -36,5 +36,14 @@ namespace LeaveApp.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<UserDto> AddUser([FromBody] User User)
+        {
+             await unitOfWork.Users.AddObject(new User(User));
+
+            return new UserDto(User);
+        }
+
+
     }
 }

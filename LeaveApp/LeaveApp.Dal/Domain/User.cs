@@ -15,6 +15,18 @@ namespace LeaveApp.Dal.Domain
         public List<UserRole> UserRoles { get; set; }
         public List<UserLeave> UserLeaves { get; set; }
 
+        public User()
+        {
 
+        }
+        public User(User user)
+        {
+            Id = Guid.NewGuid().GetHashCode();
+            Name = user.Name;
+            Password = user.Password;
+            Email = user.Email;
+            Department = user.Department;
+            JobTitle = user.JobTitle;
+        }
     }
 }

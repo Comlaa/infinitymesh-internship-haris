@@ -20,9 +20,10 @@ namespace LeaveApp.Dal.Repositories
             _Context = context;
             Table = _Context.Set<TEntitity>();
         }
-        public TEntitity AddObject(TEntitity obj)
+        public async Task<TEntitity> AddObject(TEntitity obj, CancellationToken cancellationToken = default)
         {
-            Table.Add(obj);
+            await Table.AddAsync(obj);
+            await _Context.SaveChangesAsync(cancellationToken);
             return obj;
         }
 

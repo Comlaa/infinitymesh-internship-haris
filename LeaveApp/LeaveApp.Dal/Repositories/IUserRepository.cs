@@ -11,7 +11,7 @@ namespace LeaveApp.Dal.Repositories
 {
     public interface IUserRepository
     {
-        Task<UserViewModel> GetTopTen(CancellationToken cancellationToken = default);
+        Task<List<User>> GetTopTen(CancellationToken cancellationToken = default);
 
         Task<int> Save(UserDto user, CancellationToken cancellationToken = default);
 

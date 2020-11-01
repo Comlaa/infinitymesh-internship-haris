@@ -29,12 +29,13 @@ namespace LeaveApp.Dal.Repositories
             return true;
         }
 
-        public async Task<UserViewModel> GetTopTen(CancellationToken cancellationToken = default)
+        public async Task<List<User>> GetTopTen(CancellationToken cancellationToken = default)
         {
             int MaxNumber = 10;
-            var collection = await _LeaveAppContext.Users.Take(MaxNumber).ToListAsync(cancellationToken);
+            //var collection = await _LeaveAppContext.Users.Take(MaxNumber).ToListAsync(cancellationToken);
+            return await _LeaveAppContext.Users.Take(MaxNumber).ToListAsync(cancellationToken);
 
-            return new UserViewModel(collection);
+            //return new UserViewModel(collection);
         }
 
         public async Task<int> Save(UserDto user, CancellationToken cancellationToken = default)

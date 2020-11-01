@@ -33,8 +33,11 @@ namespace LeaveApp
                     builder =>
                     {
                         builder.WithOrigins("https://localhost:44329",
-                                            "http://localhost:4200");
+                                            "http://localhost:4200").AllowAnyHeader();
+
                     });
+
+                
             });
 
             services.AddControllers();
