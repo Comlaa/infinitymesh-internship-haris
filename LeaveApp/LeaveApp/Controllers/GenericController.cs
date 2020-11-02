@@ -24,9 +24,9 @@ namespace LeaveApp.Controllers
 
         #region UserController
         [HttpGet]
-        public async Task<UserViewModel> GetUsers()
+        public async Task<List<UserDto>> GetUsers()
         {
-            return new UserViewModel(await unitOfWork.Users.GetTopTen());
+            return new UserViewModel(await unitOfWork.Users.GetTopTen()).Collection.ToList();   
 
         }
 
@@ -48,10 +48,9 @@ namespace LeaveApp.Controllers
 
         #region LeaveController
         [HttpGet]
-        public async Task<LeaveViewModel> GetLeaves()
+        public async Task<List<LeaveDto>> GetLeaves()
         {
-            System.Diagnostics.Debug.WriteLine("GetLeavesGotCalled!!!");
-            return new LeaveViewModel(await unitOfWork.Leave.GetTopTen());
+            return new LeaveViewModel(await unitOfWork.Leave.GetTopTen()).Collection.ToList();
 
 
         }
