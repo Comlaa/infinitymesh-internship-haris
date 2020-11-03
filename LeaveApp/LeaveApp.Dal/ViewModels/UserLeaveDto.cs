@@ -1,28 +1,25 @@
-﻿using System;
+﻿using LeaveApp.Dal.Domain;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace LeaveApp.Dal.Domain
+namespace LeaveApp.Dal.ViewModels
 {
-    public class UserLeave
+    public class UserLeaveDto
     {
         public int UserId { get; set; }
         public int LeaveId { get; set; }
-        public virtual User User { get; set; }
-        public virtual Leave Leave { get; set; }
-        public List<Notification> Notifications{ get; set; }
         public DateTime StartingDate { get; set; }
         public DateTime EndingDate { get; set; }
         public string ApprovedBy { get; set; }
         public bool IsAproved { get; set; }
         public string UserReplacment { get; set; }
 
-        public UserLeave()
+        public UserLeaveDto()
         {
 
         }
-        public UserLeave(UserLeave UsrL)
+        public UserLeaveDto(UserLeave UsrL)
         {
             UserId = UsrL.UserId;
             LeaveId = UsrL.LeaveId;
@@ -31,6 +28,5 @@ namespace LeaveApp.Dal.Domain
             IsAproved = UsrL.IsAproved;
             UserReplacment = UsrL.UserReplacment;
         }
-
     }
 }

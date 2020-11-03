@@ -21,6 +21,12 @@ namespace LeaveApp.Dal.Configuration
                 .WithMany(p => p.UserLeaves)
                .HasForeignKey(p => p.LeaveId);
 
+            builder.HasData(new List<UserLeave> {
+                new UserLeave { UserId = 1, LeaveId = 1 },
+                new UserLeave { UserId = 1, LeaveId = 2 },
+                new UserLeave { UserId = 2, LeaveId = 1 },
+            });
+
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Dal.Repositories
 {
-    public class GenericRepository<TEntitity> : IGenericRepository<TEntitity> where TEntitity : BaseEntitity
+    public class GenericRepository<TEntitity> : IGenericRepository<TEntitity> where TEntitity : class
     {
         private LeaveAppDbContext _Context;
         private DbSet<TEntitity> Table;

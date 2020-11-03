@@ -1,4 +1,5 @@
 ﻿using LeaveApp.Dal.Domain;
+using LeaveApp.Dal.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LeaveApp.Dal.Repositories
 {
-    public interface IGenericRepository<TEntitity> where TEntitity : BaseEntitity
+    public interface IGenericRepository<TEntitity> where TEntitity : class
     {
         TEntitity getById(int Id);
         Task<IReadOnlyCollection<TEntitity>> GetTopTen(CancellationToken cancellationToken = default);

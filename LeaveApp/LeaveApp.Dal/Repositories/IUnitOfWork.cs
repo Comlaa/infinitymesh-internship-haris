@@ -10,6 +10,7 @@ namespace LeaveApp.Dal.Repositories
         IGenericRepository<User> Users { get; }
         IGenericRepository<Role> Role { get; }
         IGenericRepository<Leave> Leave { get; }
+        IGenericRepository<UserLeave> UserLeave { get; }
 
         void Commit();
     }

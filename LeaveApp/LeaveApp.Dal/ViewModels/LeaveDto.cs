@@ -10,6 +10,8 @@ namespace LeaveApp.Dal.ViewModels
         public int Id { get; set; }
         public string LeaveType { get; set; }
         public string Description { get; set; }
+        public string SpecialLeave { get; set; }
+        public int TotalDays { get; set; }
 
         public LeaveDto()
         {
@@ -20,8 +22,8 @@ namespace LeaveApp.Dal.ViewModels
             Id = leave.Id;
             LeaveType = leave.LeaveType;
             Description = leave.Description;
-
-            System.Diagnostics.Debug.WriteLine("LEAVEDTO CALLED!!");
+            SpecialLeave = leave.SpecialLeave;
+            TotalDays = leave.TotalDays;
         }
     }
 }

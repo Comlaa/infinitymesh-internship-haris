@@ -26,10 +26,12 @@ namespace LeaveApp.Controllers
         [HttpGet]
         public async Task<List<UserDto>> GetUsers()
         {
-            return new UserViewModel(await unitOfWork.Users.GetTopTen()).Collection.ToList();   
+              
+            var collection = await unitOfWork.Users.GetTopTen();
+            return new List<UserDto>(collection.Select(user => new UserDto(user)));
 
         }
-
+        
         [HttpGet]
         public UserDto GetUserById(int Id)
         {
@@ -50,8 +52,9 @@ namespace LeaveApp.Controllers
         [HttpGet]
         public async Task<List<LeaveDto>> GetLeaves()
         {
-            return new LeaveViewModel(await unitOfWork.Leave.GetTopTen()).Collection.ToList();
 
+            var collection = await unitOfWork.Leave.GetTopTen();
+            return new List<LeaveDto>(collection.Select(leave => new LeaveDto(leave)));
 
         }
 
@@ -70,6 +73,34 @@ namespace LeaveApp.Controllers
             await unitOfWork.Leave.AddObject(new Leave(Leave));
 
             return new LeaveDto(Leave);
+        }
+        #endregion
+
+        #region UserLeaveController
+        [HttpGet]
+        public async Task<List<UserLeaveDto>> GetUserLeaves()
+        {
+
+            var collection = await unitOfWork.UserLeave.GetTopTen();
+            return new List<UserLeaveDto>(collection.Select(Userleave => new UserLeaveDto(Userleave)));
+
+        }
+
+        //[HttpGet]
+        //public LeaveDto GetLeaveById(int Id)
+        //{
+
+        //    return new LeaveDto(unitOfWork.UserLeave.getById(Id));
+
+        //}
+
+        [HttpPost]
+        public async Task<UserLeaveDto> AddUserLeave([FromBody] UserLeave UserLeave)
+        {
+
+            await unitOfWork.UserLeave.AddObject(new UserLeave(UserLeave));
+
+            return new UserLeaveDto(UserLeave);
         }
         #endregion
     }
