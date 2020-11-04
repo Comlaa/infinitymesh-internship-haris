@@ -77,23 +77,7 @@ namespace LeaveApp.Controllers
         #endregion
 
         #region UserLeaveController
-        [HttpGet]
-        public async Task<List<UserLeaveDto>> GetUserLeaves()
-        {
-
-            var collection = await unitOfWork.UserLeave.GetTopTen();
-            return new List<UserLeaveDto>(collection.Select(Userleave => new UserLeaveDto(Userleave)));
-
-        }
-
-        //[HttpGet]
-        //public LeaveDto GetLeaveById(int Id)
-        //{
-
-        //    return new LeaveDto(unitOfWork.UserLeave.getById(Id));
-
-        //}
-
+        
         [HttpPost]
         public async Task<UserLeaveDto> AddUserLeave([FromBody] UserLeave UserLeave)
         {

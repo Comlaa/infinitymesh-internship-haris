@@ -13,6 +13,7 @@ namespace LeaveApp.Dal.Repositories
     {
         TEntitity getById(int Id);
         Task<IReadOnlyCollection<TEntitity>> GetTopTen(CancellationToken cancellationToken = default);
+        
         Task<TEntitity> AddObject(TEntitity obj, CancellationToken cancellationToken = default);
         void DeleteById(int Id);
 

@@ -45,8 +45,9 @@ namespace LeaveApp
             var ConnectionString = Configuration.GetConnectionString("LeaveAppDatabase");
             services.AddDbContext<LeaveAppDbContext>(builder => builder.UseSqlServer(ConnectionString));
 
-            services.AddScoped<IUserRepository, SqlUserRepository>();
+          
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IUserLeaveRepository, UserLeaveRepostirory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

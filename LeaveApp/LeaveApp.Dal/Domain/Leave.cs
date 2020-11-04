@@ -10,7 +10,6 @@ namespace LeaveApp.Dal.Domain
         public string LeaveType { get; set; }
         public string Description { get; set; }
         public string SpecialLeave { get; set; }
-        public int TotalDays { get; set; }
         public List<UserLeave> UserLeaves { get; set; }
 
 
@@ -21,7 +20,6 @@ namespace LeaveApp.Dal.Domain
         {
             LeaveType = leave.LeaveType;
             Description = leave.Description;
-            TotalDays = leave.TotalDays;
             SpecialLeave = leave.SpecialLeave;
         }
 

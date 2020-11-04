@@ -23,7 +23,6 @@ namespace LeaveApp.Dal.ViewModels
             LeaveType = leave.LeaveType;
             Description = leave.Description;
             SpecialLeave = leave.SpecialLeave;
-            TotalDays = leave.TotalDays;
         }
     }
 }

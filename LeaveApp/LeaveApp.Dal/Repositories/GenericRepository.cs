@@ -14,6 +14,7 @@ namespace LeaveApp.Dal.Repositories
     {
         private LeaveAppDbContext _Context;
         private DbSet<TEntitity> Table;
+        
 
         public GenericRepository(LeaveAppDbContext context)
         {
