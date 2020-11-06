@@ -14,6 +14,20 @@ namespace LeaveApp.Dal.Domain
         public string EmailTo { get; set; }
         public string EmailFrom { get; set; }
 
+        public Notification()
+        {
+
+        }
+        public Notification(Notification not)
+        {
+            Id = not.Id;
+            UserId = not.UserId;
+            LeaveId = not.LeaveId;
+            Description = not.Description;
+            EmailTo = not.EmailTo;
+            EmailFrom = not.EmailFrom;
+        }
+
         
     }
 }

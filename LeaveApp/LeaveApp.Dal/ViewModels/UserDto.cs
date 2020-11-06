@@ -12,6 +12,7 @@ namespace LeaveApp.Dal.ViewModels
         public string Email { get; set; }
         public string Department { get; set; }
         public string JobTitle { get; set; }
+        public string Password { get; set; }
         public UserDto() { }
         public UserDto(User User)
         {
@@ -20,6 +21,7 @@ namespace LeaveApp.Dal.ViewModels
             Email = User.Email;
             Department = User.Department;
             JobTitle = User.JobTitle;
+            Password = User.Password;
         }
 
     }

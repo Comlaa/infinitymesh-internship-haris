@@ -19,7 +19,6 @@ namespace LeaveApp.Dal.Repositories
         }
         public async Task<IReadOnlyCollection<UserLeave>> GetUserLeaves(int userId, CancellationToken cancellationToken = default)
         {
-
             return await Context.UserLeaves.Take(100).Where(x => x.UserId == userId).ToListAsync(cancellationToken);
             
         }

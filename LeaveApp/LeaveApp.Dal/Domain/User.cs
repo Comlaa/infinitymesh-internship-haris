@@ -21,7 +21,6 @@ namespace LeaveApp.Dal.Domain
         }
         public User(User user)
         {
-            Id = Guid.NewGuid().GetHashCode();
             Name = user.Name;
             Password = user.Password;
             Email = user.Email;

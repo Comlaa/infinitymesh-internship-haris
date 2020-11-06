@@ -40,11 +40,19 @@ namespace LeaveApp.Controllers
         }
 
         [HttpPost]
-        public async Task<UserDto> AddUser([FromBody] User User)
+        public async Task<UserDto> AddUser([FromBody] UserDto User)
         {
-             await unitOfWork.Users.AddObject(new User(User));
+            var NewUser = new User()
+            {
+                Name = User.Name,
+                Department = User.Department,
+                JobTitle = User.JobTitle,
+                Password = User.Password,
+                Email = User.Email,
+            };
+            await unitOfWork.Users.AddObject(NewUser);
 
-            return new UserDto(User);
+            return new UserDto(NewUser);
         }
         #endregion
 
